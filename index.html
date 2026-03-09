@@ -1,0 +1,209 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ANAMIKA 💜</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <canvas id="fxCanvas" aria-hidden="true"></canvas>
+
+  <div class="hud" aria-hidden="false">
+    <button id="musicToggle" class="hud__btn" type="button" aria-pressed="false" title="Music">
+      Music: Off
+    </button>
+  </div>
+
+  <div id="app" class="app">
+    <!-- 1) ENTRY PAGE -->
+    <section id="screenLogin" class="screen screen--active screen--entry">
+      <div class="bg bg--cotton" aria-hidden="true">
+        <div class="cloud cloud--1"></div>
+        <div class="cloud cloud--2"></div>
+        <div class="cloud cloud--3"></div>
+        <div class="cloud cloud--4"></div>
+      </div>
+
+      <div class="card card--glass card--entry">
+        <div class="titleGlow">Welcome to Anamika's Magical Birthday World 💜</div>
+        <div class="subtitle">Enter the swamy's Heart 💜</div>
+
+        <form id="loginForm" class="form" autocomplete="off">
+          <label class="field">
+            <span class="field__label">Username</span>
+            <input id="username" class="field__input" name="username" placeholder="anamika" />
+          </label>
+          <label class="field">
+            <span class="field__label">Password</span>
+            <input id="password" class="field__input" name="password" type="password" placeholder="swamy" />
+          </label>
+          <button class="btn btn--primary btn--glow" type="submit">Enter the swamy's heart</button>
+          <div id="loginHint" class="hint" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 2) IDENTITY QUESTION -->
+    <section id="screenIdentity" class="screen">
+      <div class="card card--glass card--center">
+        <div class="question">Are you Anamika… Swamy’s wife? 💜</div>
+        <div class="btnRow">
+          <button id="btnYes" class="btn btn--primary btn--glow" type="button">YES 💜</button>
+          <button id="btnNo" class="btn btn--ghost" type="button">NO 🙈</button>
+        </div>
+        <div class="tiny">Floating hearts are watching you…</div>
+      </div>
+    </section>
+
+    <!-- 2b) NO GATE -->
+    <section id="screenDenied" class="screen">
+      <div class="card card--glass card--center">
+        <div class="question">Oops! This magical world is only for Anamika 💜</div>
+        <div class="subtitle">You are not allowed here 😜</div>
+        <button id="btnBack" class="btn btn--primary" type="button">Go Back</button>
+      </div>
+    </section>
+
+    <!-- LOVE WORLD (scroll sections) -->
+    <main id="loveWorld" class="world" hidden>
+      <!-- 3) LOVE ANIMATION PAGE -->
+      <section id="scene" class="world__section scene">
+        <div class="scene__sky" aria-hidden="true"></div>
+
+        <div class="scene__birds" aria-hidden="true">
+          <div class="bird bird--a"></div>
+          <div class="bird bird--b"></div>
+          <div class="bird bird--c"></div>
+          <div class="bird bird--d"></div>
+        </div>
+
+        <div class="ribbonBird" aria-hidden="false">
+          <div class="ribbonBird__bird" aria-hidden="true"></div>
+          <div class="ribbon">
+            <div id="line1" class="ribbon__line">Happy Birthday Mental 💜</div>
+            <div id="line2" class="ribbon__line">You are the cutest trouble in Swamy’s life.</div>
+            <div id="line3" class="ribbon__line">Today the whole sky, birds, and stars are celebrating YOU.</div>
+          </div>
+        </div>
+
+        <div class="scene__afterBirds" aria-hidden="true" id="afterBirds"></div>
+
+        <div class="scrollHint" aria-hidden="true">Scroll for surprises ↓</div>
+      </section>
+
+      <!-- 4) LOVE MESSAGE SECTION -->
+      <section id="letter" class="world__section letter">
+        <div class="card card--paper">
+          <div class="letter__title">Dear Anamika,</div>
+          <div class="letter__text glowText">
+Happy Birthday to My Wifey 🎂💜<br /><br />
+
+From the moment you came into my life, everything started feeling more beautiful.<br />
+Your smile brightens my darkest days, and your presence fills my heart with a kind of happiness I never knew before.<br /><br />
+
+You are not just special to me you are the reason my world feels warmer, my dreams feel closer, and my heart feels complete.<br />
+Every moment spent thinking about you feels like a small piece of magic.<br /><br />
+
+Your kindness, your laughter, and the way you see the world make you truly one of a kind.<br />
+In a universe full of millions of people, my heart is grateful that it found .<br /><br />
+
+On your special day, I wish you endless happiness, peaceful moments, and dreams that come true one by one.<br />
+May your life always be filled with love, beautiful memories, and the brightest smiles.<br /><br />
+
+And no matter where life takes us, one thing will always stay true <br />
+you will always hold a very special place in my heart.<br /><br />
+Once again,<br />
+<b>I Love you mental 💜</b>
+<b>Happy Birthday, my beautiful Anamika ❤️🎂</b>
+</div>
+          <a class="btn btn--primary btn--glow letter__btn" href="#cake">Next Surprise</a>
+        </div>
+      </section>
+
+      <!-- 5) CAKE CUTTING GAME -->
+      <section id="cake" class="world__section cake">
+        <div class="card card--glass card--center">
+          <div class="sectionTitle">Cut Your Birthday Cake 🎂</div>
+          <div class="game">
+            <div id="cakeWrap" class="cakeWrap" aria-label="Birthday cake game" role="application">
+              <div id="cakeWhole" class="cakeWhole" aria-hidden="false">
+                <div class="cakeTop"></div>
+                <div class="cakeBody"></div>
+                <div class="cakeBase"></div>
+                <div class="candle"></div>
+              </div>
+
+              <div id="cakeSplit" class="cakeSplit" aria-hidden="true">
+                <div class="cakeHalf cakeHalf--left">
+                  <div class="cakeTop"></div>
+                  <div class="cakeBody"></div>
+                  <div class="cakeBase"></div>
+                </div>
+                <div class="cakeHalf cakeHalf--right">
+                  <div class="cakeTop"></div>
+                  <div class="cakeBody"></div>
+                  <div class="cakeBase"></div>
+                </div>
+              </div>
+
+              <div id="knife" class="knife" role="img" aria-label="Knife (drag me)">
+                <div class="knife__blade"></div>
+                <div class="knife__handle"></div>
+              </div>
+            </div>
+
+            <div id="cakeMsg" class="gameMsg" aria-live="polite"></div>
+            <a id="toDolls" class="btn btn--ghost" href="#dolls" hidden>Continue ↓</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6) COUPLE DOLL SECTION -->
+      <section id="dolls" class="world__section dolls">
+        <div class="card card--glass card--center">
+          <div class="sectionTitle">Me and You</div>
+          <div class="dollStage" aria-hidden="true">
+            <div class="doll doll--girl"></div>
+            <div class="doll doll--boy"></div>
+            <div class="dollHearts"></div>
+          </div>
+
+          <div class="question">Do you like Swamy? 💜</div>
+          <div class="btnRow">
+            <button id="btnLikeYes" class="btn btn--primary btn--glow" type="button">YES</button>
+            <button id="btnLikeNo" class="btn btn--ghost" type="button">NO</button>
+          </div>
+          <div id="likeMsg" class="hint"></div>
+        </div>
+      </section>
+
+      <!-- 7) FINAL SURPRISE -->
+      <section id="final" class="world__section final">
+        <div class="final__sky" aria-hidden="true"></div>
+        <div class="final__birds" aria-hidden="true">
+          <div class="bird bird--f1"></div>
+          <div class="bird bird--f2"></div>
+        </div>
+
+        <div class="finalCard">
+          <div class="bigName">ANAMIKA 💜</div>
+          <div class="subtitle">This whole little world was created only for you.</div>
+          <div class="finalLines">
+            <div class="finalLine">You are my heart.</div>
+            <div class="finalLine">You are my wifey.</div>
+            <div class="finalLine">You are my mental</div>
+            <div class="finalLine">i will miss you</div>
+        <div class="finalLine">please Don't leave me</div>
+         <div class="finalLine">if i get you or not but ur always in my heart 💜 </div>
+            <div class="finalLine"><b>Happy Birthday Anamika.</b></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <audio id="bgMusic" loop>
+  <source src="spiano.mp3" type="audio/mp3">
+</audio>
+
+  <script defer src="./script.js"></script>
+</body>
